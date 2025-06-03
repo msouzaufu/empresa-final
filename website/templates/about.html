@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Sobre{% endblock %}
+{% block content %}
+<h2>Sobre Nós</h2>
+
+<!-- Blocos de texto dinâmicos para a página Sobre -->
+<div class="container mt-5">
+    {% for section in sections %}
+        <div class="about-section mb-4">
+            <h3>{{ section.title }}</h3>
+            <p>{{ section.content }}</p>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

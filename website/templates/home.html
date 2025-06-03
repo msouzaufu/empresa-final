@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Gás do DEV{% endblock %}
+{% block content %}
+<h2>Bem-vindo à Venda de Gás</h2>
+
+<div id="carouselExample" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner" style="max-height: 250px; overflow: hidden;">
+        {% for slide in sliders %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <img src="{{ slide.image.url }}" class="d-block w-100" style="height: 250px; object-fit: cover;" alt="{{ slide.title }}">
+                <div class="carousel-caption d-none d-md-block">
+                    {% if slide.title %}
+                        <h5>{{ slide.title }}</h5>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<!-- Blocos de texto fictícios -->
+<div class="container mt-5">
+    {% for section in sections %}
+        <div class="home-section mb-4">
+            <h3>{{ section.title }}</h3>
+            <p>{{ section.content }}</p>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
